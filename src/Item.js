@@ -1,20 +1,9 @@
-import React, { Component } from 'react';
-class Item extends Component {
-	constructor() {
-		super();
-		this.state = {
-
-
-		};
-
-	}
-	render () {
-		return (
-			<section ref={this.props.refs} id={"item-"+this.props.id} className={this.props.selected ? "blue" : ""}>
-				{this.props.content}
-			</section>
-		);
-	}
-}
-
-export default Item;
+import React from 'react';
+export const Item =(props)=> {
+	
+	return (
+		<section ref={props.refs} id={"item-"+props.id} className={props.selected ? "blue" : ""}>
+			{props.content}
+		</section>
+	);
+};
