@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Item from './Item';
 
 class App extends Component {
   constructor() {
@@ -36,10 +37,8 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll(event){
-    console.log(event.pageY);
     if(event.pageY)
     { 
-      console.log("scrolled");
       if(event.pageY<this.item2.current.offsetTop)
       {
         this.setState({idSelected:1});
@@ -63,9 +62,6 @@ class App extends Component {
     }    
   } 
   scrollToId(ref){
-    console.log(ref.current.offsetTop);
-    let top = ref.current.offsetTop - window.pageYOffset;
-    console.log("top: ",top);
 
     window.scrollTo({
         top:ref.current.offsetTop, 
@@ -110,32 +106,22 @@ class App extends Component {
         <div className="row">
 
             <div className="col-sm-3 vertical-menu">
-              <a id="nav-1" className={"pointer "+(this.state.idSelected==1 ? "active" : "")} onClick={this.handleClickItem} >آیتم اول</a>
+              <a id="nav-1" className={"pointer "+(this.state.idSelected==1 ? "active" : "")} onClick={this.handleClickItem}>آیتم اول</a>
               <a id="nav-2" className={"pointer "+(this.state.idSelected==2 ? "active" : "")} onClick={this.handleClickItem}>آیتم دوم</a>
               <a id="nav-3" className={"pointer "+(this.state.idSelected==3 ? "active" : "")} onClick={this.handleClickItem}>آیتم سوم</a>
               <a id="nav-4" className={"pointer "+(this.state.idSelected==4 ? "active" : "")} onClick={this.handleClickItem}>آیتم چهارم</a>
               <a id="nav-5" className={"pointer "+(this.state.idSelected==5 ? "active" : "")} onClick={this.handleClickItem}>آیتم پنجم</a>
             </div> 
             <div className="col-sm-9 items">
-              <section ref={this.item1} id="item-1" className={this.state.idSelected===1 ? "blue" : ""} >
-                {this.contents['item1']}
-              </section>
+              <Item content={this.contents['item1']} refs={this.item1} id="item-1"  selected={this.state.idSelected===1} />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <section ref={this.item2} id="item-2" className={this.state.idSelected===2 ? "blue" : ""}>
-                {this.contents['item2']}
-              </section>
+              <Item content={this.contents['item2']} refs={this.item2} id="item-2"  selected={this.state.idSelected===2} />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <section ref={this.item3} id="item-3" className={this.state.idSelected===3 ? "blue" : ""}>
-                {this.contents['item3']}
-              </section>
+              <Item content={this.contents['item3']} refs={this.item3} id="item-3"  selected={this.state.idSelected===3} />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <section ref={this.item4} id="item-4" className={this.state.idSelected===4 ? "blue" : ""}>
-                {this.contents['item4']}
-              </section>
+              <Item content={this.contents['item4']} refs={this.item4} id="item-4"  selected={this.state.idSelected===4} />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-              <section ref={this.item5} id="item-5" className={this.state.idSelected===5 ? "blue" : ""}>
-                {this.contents['item5']}
-              </section>
+              <Item content={this.contents['item5']} refs={this.item5} id="item-5"  selected={this.state.idSelected===5} />
               <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div>
         </div>

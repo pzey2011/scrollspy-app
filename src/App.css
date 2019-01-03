@@ -1,6 +1,7 @@
 
 .items {
-  text-align: center;
+  text-align: right;
+  margin-right: 15px;
 }
 .vertical-menu {
   width: 200px; 
