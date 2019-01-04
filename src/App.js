@@ -51,11 +51,12 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll(event){
+	  debugger;
     let found=false;
-    if(event.pageY)
+    if(window.pageYOffset)
     { 
       for (var i = 1; i < this.itemRefs.length; i++) {
-        if(event.pageY<this.itemRefs[i].current.offsetTop)
+        if(window.pageYOffset<this.itemRefs[i].current.offsetTop)
         {
           this.setState({idSelected:i-1});
           found=true;
@@ -78,6 +79,7 @@ class App extends Component {
 
   }
   handleClickItem(event){
+	debugger;
     for (var i = 0; i < this.itemRefs.length; i++) {
       if(event.target.id==='nav-'+i)
       {

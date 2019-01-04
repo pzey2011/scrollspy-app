@@ -1,11 +1,10 @@
 
 .items {
   text-align: right;
-  margin-right: 15px;
+  margin-right: 180px;
 }
 .vertical-menu {
   width: 200px; 
-  margin-left: -170px;
   position: fixed;
 }
 
