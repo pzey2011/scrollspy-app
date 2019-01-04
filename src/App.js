@@ -51,7 +51,6 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll(event){
-	  debugger;
     let found=false;
     if(window.pageYOffset)
     { 
@@ -79,7 +78,6 @@ class App extends Component {
 
   }
   handleClickItem(event){
-	debugger;
     for (var i = 0; i < this.itemRefs.length; i++) {
       if(event.target.id==='nav-'+i)
       {
